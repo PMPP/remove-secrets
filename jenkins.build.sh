@@ -1,3 +1,4 @@
+SET -x
 # jenkins.build.sh
 # COPY THIS TO JENKINS BUILD STEP
 
@@ -21,11 +22,12 @@ docker network create ${CTNR_NAME} || true
 # Build
 docker build -t ${IMG_NAME} .
 
+
 # Run
 docker run \
   --rm \
   --network=${CTNR_NAME} \
-  -d  \
+  -d \
   -p ${PORT}:3000 \
   --name ${CTNR_NAME} \
   ${IMG_NAME}
