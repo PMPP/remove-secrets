@@ -27,6 +27,7 @@ docker build -t ${IMG_NAME} .
 docker run \
   --rm \
   --network=${CTNR_NAME} \
+  --env MONGODB_CREDENTIALS=$mongodb \
   -d \
   -p ${PORT}:3000 \
   --name ${CTNR_NAME} \
